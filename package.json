@@ -1,0 +1,15 @@
+{
+  "name": "atelier-storefront",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A two-page product storefront with a password-protected admin panel.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "reset-password": "node reset-password.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
