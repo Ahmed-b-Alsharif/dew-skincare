@@ -1,0 +1,93 @@
+{
+  "settings": {
+    "storeName": "Dew Skincare",
+    "tagline": "Natural skincare, formulated by pharmacists",
+    "heroTitle": "Glow, naturally.",
+    "heroText": "Lip balms in 4 flavours and body care, formulated by specialised pharmacists. Made in Egypt.",
+    "welcomeLine": "Welcome to Dew",
+    "welcomeNote": "Enter your name and number to start shopping.",
+    "whatsapp": "+201000000000",
+    "phone": "+201000000000",
+    "email": "hello@example.com",
+    "instagram": "dew_skincaree",
+    "minOrder": 250,
+    "deliveryCairo": 85,
+    "deliveryAlex": 90,
+    "deliveryNote": "Cash on delivery. Delivery to Cairo, Giza and Alexandria."
+  },
+  "catalogs": [
+    {
+      "id": "bc000f32",
+      "name": "Lip care",
+      "description": "Lip balms in 4 flavours"
+    },
+    {
+      "id": "7aa4667d",
+      "name": "Body care",
+      "description": "Moisturiser, body butter, shower gel"
+    },
+    {
+      "id": "33be4ce6",
+      "name": "Makeup",
+      "description": "Lip gloss and more"
+    }
+  ],
+  "products": [
+    {
+      "id": "21e425f0",
+      "name": "Chopstick lip balm",
+      "catalog": "bc000f32",
+      "price": 60,
+      "salePrice": 0,
+      "stock": 25,
+      "description": "Stick lip balm. Flavours: chocolate, coconut, strawberry, candy.",
+      "howToUse": "",
+      "tags": "chocolate, coconut, strawberry, candy",
+      "images": [],
+      "visible": true,
+      "featured": true
+    },
+    {
+      "id": "a0444a5e",
+      "name": "Macaron lip balm",
+      "catalog": "bc000f32",
+      "price": 90,
+      "salePrice": 0,
+      "stock": 25,
+      "description": "Macaron-shaped lip balm. Flavours: chocolate, coconut, strawberry, candy.",
+      "howToUse": "",
+      "tags": "chocolate, coconut, strawberry, candy",
+      "images": [],
+      "visible": true,
+      "featured": true
+    },
+    {
+      "id": "0210991b",
+      "name": "Body butter",
+      "catalog": "7aa4667d",
+      "price": 180,
+      "salePrice": 160,
+      "stock": 10,
+      "description": "Rich, nourishing body butter.",
+      "howToUse": "",
+      "tags": "body",
+      "images": [],
+      "visible": true,
+      "featured": false
+    },
+    {
+      "id": "fad223bf",
+      "name": "Shower gel",
+      "catalog": "7aa4667d",
+      "price": 120,
+      "salePrice": 0,
+      "stock": 10,
+      "description": "Gentle everyday shower gel.",
+      "howToUse": "",
+      "tags": "body",
+      "images": [],
+      "visible": true,
+      "featured": false
+    }
+  ]
+}

@@ -1,6 +1,0 @@
-# Live store data: admin password hash, session secret, customer names/phones/addresses, orders
-data/db.json
-data/*.tmp
-node_modules/
-.env
-.DS_Store
