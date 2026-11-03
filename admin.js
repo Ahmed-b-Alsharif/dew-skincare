@@ -19,11 +19,14 @@ function savedCfg() {
   return null;
 }
 async function gh(method, path, body) {
-  const r = await fetch(`https://api.github.com/repos/${cfg.repo}/${path}`, {
-    method, cache: 'no-store',
-    headers: { Authorization: 'Bearer ' + cfg.token, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
-    body: body ? JSON.stringify(body) : undefined
-  });
+  const headers = { Authorization: 'Bearer ' + cfg.token, Accept: 'application/vnd.github+json' };
+  if (body) headers['Content-Type'] = 'application/json';
+  let r;
+  try {
+    r = await fetch(`https://api.github.com/repos/${cfg.repo}/${path}`, { method, cache: 'no-store', headers, body: body ? JSON.stringify(body) : undefined });
+  } catch (e) {
+    throw new Error('Your browser could not reach GitHub. Turn off any ad blocker, privacy shield or VPN for this site, or try another browser or mobile data, then sign in again.');
+  }
   const j = await r.json().catch(() => ({}));
   if (r.status === 401) throw new Error('That token was not accepted. Create a new one and sign in again.');
   if (r.status === 404) throw new Error('Repository or file not found. Check the repository name and that the token has access to it.');
@@ -77,7 +80,9 @@ function showLogin(msg) {
     <p style="text-align:center"><a href="./">Back to the shop</a></p></div>`;
   $('#lf').onsubmit = async e => {
     e.preventDefault();
-    cfg = { repo: $('#repo').value.trim().replace(/^https?:\/\/github\.com\//, '').replace(/\/$/, ''), token: $('#tok').value.trim() };
+    const tok = $('#tok').value.replace(/^\s*Bearer\s+/i, '').replace(/\s+/g, '');
+    if (!tok || /[^\x21-\x7e]/.test(tok)) { $('#le').textContent = 'The token has an invalid character. Copy it again from GitHub and paste it with no spaces.'; return; }
+    cfg = { repo: $('#repo').value.trim().replace(/^https?:\/\/github\.com\//, '').replace(/\/$/, ''), token: tok };
     $('#le').textContent = 'Checking...';
     try {
       const r = await gh('GET', '');
