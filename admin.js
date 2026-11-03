@@ -23,7 +23,7 @@ async function gh(method, path, body) {
   if (body) headers['Content-Type'] = 'application/json';
   let r;
   try {
-    r = await fetch(`https://api.github.com/repos/${cfg.repo}/${path}`, { method, cache: 'no-store', headers, body: body ? JSON.stringify(body) : undefined });
+    r = await fetch(`https://api.github.com/repos/${cfg.repo}${path ? '/' + path : ''}`, { method, cache: 'no-store', headers, body: body ? JSON.stringify(body) : undefined });
   } catch (e) {
     throw new Error('Your browser could not reach GitHub. Turn off any ad blocker, privacy shield or VPN for this site, or try another browser or mobile data, then sign in again.');
   }
